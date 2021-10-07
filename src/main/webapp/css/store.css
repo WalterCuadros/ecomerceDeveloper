@@ -1,0 +1,46 @@
+/* Autor: Walter Giovanny Cuadros Rincón */
+
+.masthead {
+    margin: auto;
+    height: 50vh;
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.menu{
+    margin: auto;
+    background-color: rgb(51, 133, 187);
+    padding: 12px;
+}
+.list-products{
+    margin: auto;
+    padding: 30px;
+}
+.card{
+    padding: 0px 10px 0px 10px;
+    margin-top: 5px;
+    border: none!important;
+}
+.ver-detalle>button{
+    color: white !important;
+    background-color: #f33f3f!important;
+}
+.ver-detalle>button:hover{
+    background-color: rgb(51, 133, 187) !important;
+    margin-left: 0px;
+}
+.cantidad-producto{
+    border: 2px dashed black;
+    margin-right: 0px;
+}
+.btn-white{
+    color: white !important;
+}
+.btn-white:hover{
+    
+    color: black!important;
+}
+.catg-link{
+	color:white!important;
+}
