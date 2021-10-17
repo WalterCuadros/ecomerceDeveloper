@@ -13,5 +13,5 @@ import com.ecommerce.modelos.Cliente;
  */
 public interface IDaoCliente {
     public boolean agregarCliente(Cliente cliente);
-    public Cliente getCliente(String cedula);
+    public Cliente getCliente(String cedula,  String password);
 }

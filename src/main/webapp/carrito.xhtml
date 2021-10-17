@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html"> 
+      <h:head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"/>
+		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="css/carro.css"/>
+		<script src="https://kit.fontawesome.com/68beeb19ef.js" crossorigin="anonymous"></script>
+		<f:metadata>
+	   		<f:viewAction action="#{loginBean.validarSesion}" />
+		</f:metadata>
+	</h:head>
+<body> 
+	<header>
+        <nav class="navbar navbar-expand-lg py-3 shadow-sm">
+          <div class="container">
+            <a href="#" class="navbar-brand">
+              <!-- Logo Image -->
+              <img src="img/logo1.png" width="45" alt="" class="d-inline-block align-middle mr-2"></img>
+              <!-- Logo Text -->
+              <span class="text-uppercase font-weight-bold">ECOMMERCE</span>
+            </a>
+        
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+              <ul class="navbar-nav ml-auto">
+                <li  class="nav-item dropdown">
+                  <a class="nav-item nav-link  mr-md-2" href="#"><h:outputText value="#{loginBean.nombre}"></h:outputText></a>
+                </li>
+                <li class="nav-item active">
+                   <button class="btn-white nav-item nav-link  mr-md-2 btn btn-outline-light cart-button" type="button" href="#" >
+                  <i class="fas fa-cart-plus"></i>
+                </button></li>
+                <li class="nav-item">
+                <h:form>
+	                <h:commandLink  class="btn-white nav-item nav-link  mr-md-2 btn btn-outline-light" action="#{loginBean.cerrarSesion()}" value="Logout"></h:commandLink>
+				</h:form>
+                	
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+    </header>
+	<h:form>
+	    <div class="card">
+	        <p:dataTable var="product" value="#{carritoBean.mostrarCarrito()}">
+	        	<p:column class="table-light" headerText="Titulo">
+			       <h:outputText value="#{libros.get(1)}" />
+			    </p:column>
+	            <p:column headerText="Code">
+	                <h:outputText value="#{product.codigoBarras}" />
+	            </p:column>
+	
+	            <p:column headerText="Name">
+	                <h:outputText value="#{product.nombre}" />
+	            </p:column>
+	
+	            <p:column headerText="Category">
+	                <h:outputText value="#{product.tipoProductoNombre}" />
+	            </p:column>
+	
+	            <p:column headerText="Quantity">
+	                <h:outputText value="#{product.precio}" />
+	            </p:column>
+	        </p:dataTable>
+	    </div>
+	</h:form>
+
+    
+   	<footer class="page-footer font-small special-color-dark pt-4 footer-content">
+    <!-- Footer Elements -->
+    <div class="container ">
+  
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-fb mx-1">
+            <i class="fas fa-phone-alt"> Celular - 3205578798 </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-tw mx-1">
+            <i class="fab fa-whatsapp"> WhatsApp - 3205578798</i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-li mx-1">
+            <i class="fas fa-envelope-open-text"> contacto@ecommerce.com.co</i>
+          </a>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      MISIONTIC
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body> 
+</html>

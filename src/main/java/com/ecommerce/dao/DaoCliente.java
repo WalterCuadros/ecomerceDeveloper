@@ -50,11 +50,11 @@ public class DaoCliente extends Conexion implements IDaoCliente  {
     }
 
     @Override
-    public Cliente getCliente(String cedula) {
+    public Cliente getCliente(String cedula, String password) {
        
          String sql="SELECT * "+
                     " FROM "+FinalBD.T_CLIENTE+
-                    " WHERE "+FinalBD.T_CLIENTE+"."+FinalBD.TC_CEDULA+" = '"+cedula+"'";
+                    " WHERE "+FinalBD.T_CLIENTE+"."+FinalBD.TC_CEDULA+" = '"+cedula+"' and "+FinalBD.T_CLIENTE+"."+FinalBD.TC_PASSWORD+" = '"+password+"'";
          
          try {
             Connection connection=getConexion();

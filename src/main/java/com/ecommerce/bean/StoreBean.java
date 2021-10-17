@@ -35,6 +35,7 @@ public class StoreBean {
 	}
 	
 	public String goProductos(Integer categoria) {
+		System.out.println(categoria);
 		switch(categoria) {
 		case 1:  return "storeOne";
         		

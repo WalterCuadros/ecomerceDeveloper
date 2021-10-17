@@ -2,7 +2,7 @@ package com.ecommerce.dao;
 
 public class FinalBD {
 	public static final String URL="jdbc:mysql://localhost:3306/";
-    public static final String DATABASE="gangazo";
+    public static final String DATABASE="ecommerce";
     public static final String USER="root";
     public static final String PASSWORD="";
     
@@ -12,6 +12,7 @@ public class FinalBD {
     public static final String TC_CEDULA="cedula";
     public static final String TC_TARJETA="tarjeta";
     public static final String TC_EMAIL="email";
+    public static final String TC_PASSWORD="password";
     
     public static final String T_PRODUCTO="producto";
     public static final String TP_ID="id";

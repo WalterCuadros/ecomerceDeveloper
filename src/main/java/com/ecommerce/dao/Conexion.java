@@ -3,6 +3,7 @@ package com.ecommerce.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.mysql.cj.jdbc.Driver;
@@ -13,9 +14,9 @@ public class Conexion {
 	    
 	    public Connection getConexion(){
 	        
-	        try {
+	    	try {
 	            
-	            Class.forName("com.mysql.cj.jdbc.Driver");
+	            Class.forName("com.mysql.jdbc.Driver");
 	            connection=DriverManager.getConnection(FinalBD.URL+FinalBD.DATABASE, FinalBD.USER, FinalBD.PASSWORD);
 	            
 	        } catch (SQLException e) {

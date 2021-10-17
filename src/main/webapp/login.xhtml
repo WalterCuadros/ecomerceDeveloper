@@ -30,11 +30,15 @@
         <div class="container container1">
           <div class="row">
             <h1 class="titulo">BIENVENIDO</h1>
-            
+            <h1 class="titulo"> ECOMMERCE </h1>
+            <label for="usuario" class="label" style="color:white">Cedula cliente</label> 
             <h:inputText  class="form-control"   placeholder="Cedula" id="usuario" value="#{loginBean.cedula}" required="true" >
                 <f:validateLength minimum="2"/>
             </h:inputText>
-             <input class="form-control" id="contra" type="password"  placeholder="Contraseña" />
+            <label for="password" class="label" style="color:white">Contraseña</label> 
+            <h:inputSecret  class="form-control"   placeholder="Contraseña" id="password" value="#{loginBean.password}" required="true" >
+                <f:validateLength minimum="2"/>
+            </h:inputSecret>
             <h:message for="usuario" display="icon"/>
              <h:outputText value="#{loginBean.mensaje}"></h:outputText>
              <h:commandButton  class="btn-inicio" value="Iniciar Sessión" update="@form" action="#{loginBean.validarFormulario()}" icon="pi pi-check"></h:commandButton>  

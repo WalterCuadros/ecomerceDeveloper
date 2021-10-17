@@ -8,6 +8,9 @@ nav, .footer-copyright {
 .nav-item > a, .navbar-brand{
     color: white!important;
 }
+.label {
+	color:white;
+}
 .footer-content{
     padding-top: 20px;
     background-color: rgb(51, 133, 187) !important;

@@ -36,9 +36,9 @@
                   <a class="nav-item nav-link  mr-md-2" href="#"><h:outputText value="#{loginBean.nombre}"></h:outputText></a>
                 </li>
                 <li class="nav-item active">
-                   <button class="btn-white nav-item nav-link  mr-md-2 btn btn-outline-light cart-button" type="button" href="#" >
-                  <i class="fas fa-cart-plus"></i>
-                </button></li>
+                   <h:form>
+                	 <h:commandLink  class="btn-white nav-item nav-link  mr-md-2 btn btn-outline-light cart-button" action="#{carritoBean.viewCarrito()}"><i class="fas fa-cart-plus"></i></h:commandLink>
+                   </h:form></li>
                 <li class="nav-item">
                 <h:form>
 	                <h:commandLink  class="btn-white nav-item nav-link  mr-md-2 btn btn-outline-light" action="#{loginBean.cerrarSesion()}" value="Logout"></h:commandLink>
@@ -61,17 +61,17 @@
 	          <ul class="nav justify-content-center">
 	             <li class="nav-item">
 	            	<h:form>
-	              		<h:commandLink  class="nav-link catg-link" action="#{storeBean.goProductos(1)}" value="Categoría 1"></h:commandLink>
+	              		<h:commandLink  class="nav-link catg-link" action="#{storeBean.goProductos(1)}" value="Alimentos"></h:commandLink>
 	            	</h:form>
 	            </li>
 	            <li class="nav-item">
 	            	 <h:form>
-	            	 	<h:commandLink  class="nav-link catg-link" action="#{storeBean.goProductos(2)}" value="Categoría 2"></h:commandLink>
+	            	 	<h:commandLink  class="nav-link catg-link" action="#{storeBean.goProductos(2)}" value="Bebidas"></h:commandLink>
 	            	 </h:form>
 	            </li>
 	            <li class="nav-item">
 	              	<h:form>
-	              		<h:commandLink  class="nav-link catg-link" action="#{storeBean.goProductos(3)}" value="Categoría 3"></h:commandLink>
+	              		<h:commandLink  class="nav-link catg-link" action="#{storeBean.goProductos(3)}" value="Aseo"></h:commandLink>
 	            	</h:form>
 	            </li>
 	          </ul>
@@ -91,7 +91,8 @@
 							                      <p class="">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
 							                      <div class="ul-product row"> 
 							                          <div class=" col-12 col-md-5"><p class="">#{product.precio}</p></div>
-							                          <div class="ver-detalle col-12 col-md-7"> <button type="button" class="btn btn-sm"  data-toggle="modal" data-target="#modalProduct">Ver producto</button></div>
+			
+							                          <div class="ver-detalle col-12 col-md-7"> <h:commandButton class="btn btn-sm agregar" action="#{carritoBean.guardarProductoCarrito(product, loginBean.cliente)}" value="Agregar" /></div>
 							                      </div>
 							                    </figcaption>
 							                  </figure>

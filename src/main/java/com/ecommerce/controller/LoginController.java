@@ -12,9 +12,9 @@ public class LoginController {
 		this.cliente = cliente;
 		this.IDaocliente = IDaocliente;
 	}
-	 public Cliente loginAction(String cedula){
+	 public Cliente loginAction(String cedula,String password){
 	        if(!cedula.equals("")){
-	            this.cliente = buscarCliente(cedula);
+	            this.cliente = buscarCliente(cedula,password);
 	            System.out.println(this.cliente);
 	            if(this.cliente == null){
 	                return null;
@@ -28,9 +28,9 @@ public class LoginController {
 	        }
 	    } 
 	    
-	 private Cliente buscarCliente(String cedula){
+	 private Cliente buscarCliente(String cedula, String password ){
 	        
-	        Cliente clienteBuscado = IDaocliente.getCliente(cedula); 
+	        Cliente clienteBuscado = IDaocliente.getCliente(cedula, password); 
 	        System.out.println(cedula);
 	        System.out.println("Cliente buscado");
 	        System.out.println(clienteBuscado.getId());

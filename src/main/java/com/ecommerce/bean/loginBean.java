@@ -51,7 +51,7 @@ public class loginBean {
 		if(getCedula().equals("")) {
 			context.addMessage(null, new FacesMessage("Campo Cédula es obligatorio"));
 		}else {
-			this.cliente = this.login.loginAction(this.cedula);
+			this.cliente = this.login.loginAction(this.cedula,this.password);
 			if(this.cliente != null) {
 				this.session.setAttribute("username", this.cliente.getNombre());
 				this.session.setAttribute("userid", this.cliente.getId());
@@ -74,4 +74,7 @@ public class loginBean {
 		this.session.invalidate();
 		 return "login";
 	 }
+	public Cliente getCliente() {
+		return this.cliente;
+	}
 }
