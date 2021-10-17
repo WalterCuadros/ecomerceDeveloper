@@ -1,29 +1,22 @@
-CREATE DATABASE IF NOT EXISTS gangazo;
-USE gangazo;
+CREATE DATABASE IF NOT EXISTS ecommerce;
+USE ecommerce;
 
-CREATE TABLE cliente(
-id 		int(255) auto_increment not null,
-nombre	varchar(20),
-cedula	varchar(255),
-tarjeta varchar(255),
-email	varchar(255),
-CONSTRAINT pk_cliente PRIMARY KEY(id)
-)ENGINE=InnoDb;
+CREATE TABLE cliente( id int(255) auto_increment not null,nombre varchar(20), cedula varchar(255), tarjeta varchar(255),email varchar(255), password varchar(255),CONSTRAINT pk_cliente PRIMARY KEY(id))ENGINE=InnoDb;
 
 CREATE TABLE tipo_producto(
-id 		int(255) auto_increment not null,
+id 	int(255) auto_increment not null,
 nombre	varchar(20),
 CONSTRAINT pk_tipo_producto PRIMARY KEY(id)
 )ENGINE=InnoDb;
 
 CREATE TABLE producto(
-id 		int(255) auto_increment not null,
-codigo_barras	varchar(20),
-nombre	varchar(255),
+id int(255) auto_increment not null,
+codigo_barras varchar(20),
+nombre varchar(255),
 tipo_producto_id int(255) not null,
 marca varchar(255),
 fecha_vencimiento datetime,
-precio	decimal(55),
+precio decimal(55),
 descuento decimal(55),
 CONSTRAINT pk_cliente PRIMARY KEY(id),
 CONSTRAINT fk_producto_tipo_producto FOREIGN KEY(tipo_producto_id) REFERENCES tipo_producto(id)
@@ -34,7 +27,7 @@ CONSTRAINT fk_producto_tipo_producto FOREIGN KEY(tipo_producto_id) REFERENCES ti
 
 
 CREATE TABLE carrito(
-id  	int(255) auto_increment not null,
+id int(255) auto_increment not null,
 cliente_id int(255) not null,
 is_active boolean not null,
 CONSTRAINT pk_carrito PRIMARY KEY(id),
@@ -44,9 +37,9 @@ CONSTRAINT fk_carrito_cliente FOREIGN KEY(cliente_id) REFERENCES cliente(id)
 
 
 CREATE TABLE productoCarrito(
-id 		int(255) auto_increment not null,
-cantidad_producto	int(255),
-producto_id	int(255) not null,
+id int(255) auto_increment not null,
+cantidad_producto int(255),
+producto_id int(255) not null,
 in_carrito boolean not null,
 carrito_id int(255) not null,
 CONSTRAINT pk_producto_carrito PRIMARY KEY(id),
@@ -58,9 +51,9 @@ CONSTRAINT fk_productoCarrito_carrito FOREIGN KEY(carrito_id) REFERENCES carrito
 
 
 CREATE TABLE compra(
-id 		int(255) auto_increment not null,
-valor_obsequio	decimal(55),
-valor_total	decimal(55),
+id int(255) auto_increment not null,
+valor_obsequio decimal(55),
+valor_total decimal(55),
 fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
 ON UPDATE CURRENT_TIMESTAMP,
 carrito_id int(255) not null,
@@ -68,7 +61,7 @@ CONSTRAINT pk_compra PRIMARY KEY(id),
 CONSTRAINT fk_compra_carrito FOREIGN KEY(carrito_id) REFERENCES carrito(id)
 )ENGINE=InnoDb;
 
-
+INSERT INTO cliente (nombre, cedula, tarjeta, email, password) VALUES ('CARLOS CONTRERAS','10912345','12344321','ccontreras@email.com','12345');
 INSERT INTO tipo_producto (nombre) VALUES 
 ('Comestibles'),('Liquidos'),('Aseo');
 
